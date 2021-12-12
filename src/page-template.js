@@ -1,14 +1,79 @@
+const underneathManager = (workers) => {
+  console.log("line 4", workers);
+  // get array of just Engineers
+  const featuredEngineers = workers.filter((worker) => {
+    if (worker.engineerGithub) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
+  console.log('line 12', featuredEngineers);
 
+  // get array of just Interns
+  const featuredInterns = workers.filter((worker) => {
+    if (!worker.engineerGithub) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  console.log('line 23', featuredInterns);
+
+  const featuredEngineerHtmlArr = featuredEngineers.map(
+    ({ engineerName, engineerId, engineerEmail, engineerGithub }) => {
+      return `
+<section class="card row" style="width: 18rem;">
+<div class="">
+<div class="card-body">
+<h5 class="card-title">${engineerName}</h5>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">ID: ${engineerId}</li>
+<li class="list-group-item">Email: ${engineerEmail}</li>
+<li class="list-group-item">GitHub: ${engineerGithub}</li>
+</ul>
+</div>
+</div>
+</section>
+       `;
+    }
+  );
+
+  const featuredInternHtmlArr = featuredInterns.map(
+    ({ internName, internId, internEmail, internSchool }) => {
+      return `
+<section class="card row" style="width: 18rem;">
+<div class="">
+<div class="card-body">
+<h5 class="card-title">${internName}</h5>
+<ul class="list-group list-group-flush">
+<li class="list-group-item">ID: ${internId}</li>
+<li class="list-group-item">Email: ${internEmail}</li>
+<li class="list-group-item">School: ${internSchool}</li>
+</ul>
+</div>
+</div>
+</section>
+       `;
+    }
+  );
+
+  return `${featuredEngineerHtmlArr}
+          ${featuredInternHtmlArr}`
+};
 
 module.exports = generatePage = (data) => {
-    
-    console.log('gen', data[0].managerName);
-    console.log('engineerInfo', data[1].engineerId);
-    console.log('engineerW', data[2].engineerId);
+  console.log("gen", data[0].managerName);
+  console.log("engineerInfo", data[1].engineerId);
+  console.log("engineerW", data[2].engineerId);
 
+  const [manager, ...workers] = data;
 
-    return `
+  console.log("line 91", workers);
+
+  return `
     
     <!DOCTYPE html>
 <html lang="en">
@@ -31,17 +96,20 @@ module.exports = generatePage = (data) => {
      <section class="card row" style="width: 18rem;">
      <div class="">
          <div class="card-body">
-             <h5 class="card-title">${data[0].managerName}</h5>
+             <h5 class="card-title">${manager.managerName}</h5>
          <ul class="list-group list-group-flush">
-             <li class="list-group-item">${data[0].managerEmail}</li>
-             <li class="list-group-item">${data[0].managerId}</li>
-             <li class="list-group-item">${data[0].managerOfficeNumber}</li>
+             <li class="list-group-item">ID: ${manager.managerId}</li>
+             <li class="list-group-item">Email: ${manager.managerEmail}</li>
+             <li class="list-group-item">Office Number: ${
+               manager.managerOfficeNumber
+             }</li>
          </ul>
          </div>
       </div>
  </section>
+ ${underneathManager(workers)}
         </main>
 </body>
 </html>
-    `
-}
+    `;
+};
