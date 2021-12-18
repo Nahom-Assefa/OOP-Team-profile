@@ -29,6 +29,7 @@ const underneathManager = (workers) => {
 <div class="">
 <div class="card-body">
 <h5 class="card-title">${engineerName}</h5>
+<h6 class="card-subtitle mb-2 text-muted"><i class="icofont-diving-goggle"></i>Engineer</h6>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${engineerId}</li>
 <li class="list-group-item">Email: ${engineerEmail}</li>
@@ -48,6 +49,7 @@ const underneathManager = (workers) => {
 <div class="">
 <div class="card-body">
 <h5 class="card-title">${internName}</h5>
+<h6 class="card-subtitle mb-2 text-muted"><i class="icofont-graduate-alt"></i>Intern</h6>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${internId}</li>
 <li class="list-group-item">Email: ${internEmail}</li>
@@ -65,9 +67,6 @@ const underneathManager = (workers) => {
 };
 
 module.exports = generatePage = (data) => {
-  console.log("gen", data[0].managerName);
-  console.log("engineerInfo", data[1].engineerId);
-  console.log("engineerW", data[2].engineerId);
 
   const [manager, ...workers] = data;
 
@@ -83,6 +82,7 @@ module.exports = generatePage = (data) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="./icofont/icofont.min.css" />
 <link rel="stylesheet" href="../dist/style.css">
     <title>My Team Info</title>
 </head>
@@ -97,6 +97,7 @@ module.exports = generatePage = (data) => {
      <div class="">
          <div class="card-body">
              <h5 class="card-title">${manager.managerName}</h5>
+             <h6 class="card-subtitle mb-2 text-muted"><i class="icofont-coffee-mug"></i>Manager</h6>
          <ul class="list-group list-group-flush">
              <li class="list-group-item">ID: ${manager.managerId}</li>
              <li class="list-group-item">Email: ${manager.managerEmail}</li>
