@@ -1,19 +1,25 @@
 # OOP-Team-profile
 
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
+**Version 1.0.0**
+
+## Description
+The purpose of this project was to create an HTML application in node using the jest test framework to run preliminary tests and npm inquirer package to draw up questions specific to building an organizational team. 
+
+### Significant Changes
+We brought back concepts like file system to write the file and produce the output. As well as functions returning a slew of template literal of html text. Bootstrap and icofont were third parties brought in for asethetics as well. 
+
+### Challenges
+The biggest challenge was finding a way to create persistence in the application, though we are not using the browser to leverage something like localStorage. The architecture I chose was to push the return of each question object into a global array so regardless of when the user chose to finish building their team the application had access to the final array. From there I was able to deconstruct the values to build my page template accordingly.
+
+### Screenshot
+![](/dist/my-team.png)
+
+### Walkthrough Link
+https://watch.screencastify.com/v/m2mBEeFmDA8DGnOqkyOM
+
+### Deployed Link
+https://nahom-assefa.github.io/OOP-Team-profile/
+
+License and Copyright
+© Xander Rapstine, Trilogy Education Services/2U
+
