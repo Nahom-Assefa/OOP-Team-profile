@@ -28,7 +28,7 @@ const underneathManager = (workers) => {
 <section class="card row" style="width: 18rem;">
 <div class="">
 <div class="card-body">
-<h5 class="card-title">${engineerName}</h5>
+<h5 class="card-title text-dark">${engineerName}</h5>
 <h6 class="card-subtitle mb-2 text-muted"><i class="icofont-diving-goggle"></i>Engineer</h6>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${engineerId}</li>
@@ -48,7 +48,7 @@ const underneathManager = (workers) => {
 <section class="card row" style="width: 18rem;">
 <div class="">
 <div class="card-body">
-<h5 class="card-title">${internName}</h5>
+<h5 class="card-title text-dark">${internName}</h5>
 <h6 class="card-subtitle mb-2 text-muted"><i class="icofont-graduate-alt"></i>Intern</h6>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${internId}</li>
@@ -89,14 +89,14 @@ module.exports = generatePage = (data) => {
 <body>
     <header class="d-block p-2 bg-primary text-white text-center">
         <h1 class=" ">
-            MY TEAM
+        MY TEAM <i class="icofont-dart icofont-1x bg-danger"></i> 
         </h1>
     </header>
      <main class="container d-flex justify-content-center">
      <section class="card row" style="width: 18rem;">
      <div class="">
          <div class="card-body">
-             <h5 class="card-title">${manager.managerName}</h5>
+             <h5 class="card-title text-dark">${manager.managerName}</h5>
              <h6 class="card-subtitle mb-2 text-muted"><i class="icofont-coffee-mug"></i>Manager</h6>
          <ul class="list-group list-group-flush">
              <li class="list-group-item">ID: ${manager.managerId}</li>
